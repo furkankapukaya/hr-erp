@@ -22,7 +22,6 @@ class CreateProjectsTable extends Migration
             $table->foreign('employee_id')
                     ->references('id')->on('employees')
                     ->onDelete('cascade');
-            $table->integer('manager');
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class CreateEmployeeProjectTable extends Migration
             $table->increments('id');
             $table->integer('employee_id');
             $table->integer('project_id');
+            $table->integer('manager');
             $table->timestamps();
         });
     }
