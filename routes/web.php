@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::resource('employee', 'EmployeeController');
+Route::resource('vacation', 'VacationController');
+Route::resource('lecture', 'LectureController');
+Route::resource('timeline', 'TimelineController');
+Route::resource('project', 'ProjectController');

@@ -26,6 +26,11 @@ class Employee extends Model
     	return $this->belongsToMany('\App\Lecture');
     }
 
+    public function projects()  
+    {
+        return $this->belongsToMany('\App\Project');
+    }
+
 
 
 }
