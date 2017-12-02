@@ -17,6 +17,7 @@ class CreateLecturesTable extends Migration
             $table->increments('id');
             $table->dateTime('starts');
             $table->dateTime('ends');
+            $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')
                     ->references('id')->on('employees')
                     ->onDelete('cascade');

@@ -18,6 +18,7 @@ class CreateDemandsTable extends Migration
             $table->string('project');
             $table->string('position');
             $table->string('info');
+            $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')
                     ->references('id')->on('employees')
                     ->onDelete('cascade');

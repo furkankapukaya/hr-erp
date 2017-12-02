@@ -16,8 +16,9 @@ class CreateVacationsTable extends Migration
         Schema::create('vacations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('info');
-            $table->dateTime('starts');
-            $table->dateTime('ends');
+            $table->date('starts');
+            $table->date('ends');
+            $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')
                     ->references('id')->on('employees')
                     ->onDelete('cascade');

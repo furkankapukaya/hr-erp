@@ -15,10 +15,11 @@ class CreateTimelinesTable extends Migration
     {
         Schema::create('timelines', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('date');
+            $table->date('date');
             $table->string('start');
             $table->string('end');
             $table->string('info');
+            $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')
                     ->references('id')->on('employees')
                     ->onDelete('cascade');
