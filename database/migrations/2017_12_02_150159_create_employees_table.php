@@ -20,6 +20,7 @@ class CreateEmployeesTable extends Migration
             $table->date('birthday');
             $table->string('address');
             $table->string('gender');
+            $table->date('recruitment');
             $table->integer('admin')->default(0);  
             $table->timestamps();
         });

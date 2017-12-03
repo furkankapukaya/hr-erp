@@ -15,6 +15,7 @@ class CreateLecturesTable extends Migration
     {
         Schema::create('lectures', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->dateTime('starts');
             $table->dateTime('ends');
             $table->integer('employee_id')->unsigned();
