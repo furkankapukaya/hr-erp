@@ -5,7 +5,7 @@
 @section('content')
 	<div class="x_content">
         <br>
-        <form action="{{action('EmployeeController@store')}}" method="POST" id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+        <form action="{{action('ProjectController@store')}}" method="POST" id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
         	{{ csrf_field() }}
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Project Name<span class="required">*</span>
@@ -23,18 +23,29 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="project-manager">
                             @foreach($employees as $employee)
-                              <option name="{{ $employee->name }} {{ $employee->lastname }}" value="{{ $employee->name }} {{ $employee->lastname }}">{{ $employee->name }} {{ $employee->lastname }}</option>
+                              <option name="{{ $employee->id }}" value="{{ $employee->id }}">{{ $employee->name }} {{ $employee->lastname }}</option>
                             @endforeach
                           </select>
             </div>
           </div>
-          
- 			        
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="project-manager">Project Workers<span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="select2_multiple form-control" multiple="multiple" name="employees[]">
+                            @foreach($employees as $employee)
+                              <option name="employee" value="{{ $employee->id }}">{{ $employee->name }} {{ $employee->lastname }}</option>
+                            @endforeach
+                          </select>
+            </div>
+          </div>
+      
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">Starting Date<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-             	 <input type="text" class="form-control has-feedback-left" name="birth" id="single_cal1" placeholder="Date Of Birth" aria-describedby="inputSuccess2Status">
+             	 <input type="text" class="form-control has-feedback-left" name="startdate" id="single_cal1" placeholder="Starting Date" aria-describedby="inputSuccess2Status">
                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                  <span id="inputSuccess2Status" class="sr-only">(success)</span>
             </div>
@@ -44,7 +55,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date<span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-               <input type="text" class="form-control has-feedback-left" name="birth" id="single_cal2" placeholder="Date Of Birth" aria-describedby="inputSuccess2Status">
+               <input type="text" class="form-control has-feedback-left" name="enddate" id="single_cal2" placeholder="End Date" aria-describedby="inputSuccess2Status">
                  <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                  <span id="inputSuccess2Status" class="sr-only">(success)</span>
             </div>

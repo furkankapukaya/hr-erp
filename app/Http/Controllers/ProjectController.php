@@ -12,12 +12,41 @@ class ProjectController extends Controller
     {
         $projects = \App\Project::all();
         $employees = \App\Employee::all();
-        return view('project.index', ['projects' => $projects, 'employees' => $employees]);
+        $employee_counts = [];
+        foreach ($projects as $project) {
+        	$tmp = $project->employees()->count();
+
+        	array_push($employee_counts, $tmp);
+        }
+        //dd($employee_counts);
+        return view('project.index', [
+        	'projects' => $projects, 
+			'employees' => $employees,
+			'employee_counts' => $employee_counts
+		]);
     }
 
     public function create()
     {
     	$employees = \App\Employee::all();
     	return view('project.create', ['employees' => $employees]);
+    }
+
+    public function store(Request $request)
+    {
+    	//dd($request);
+    	$project = new Project;
+    	if($request){
+    		$project->name = $request->input('first-name');
+    		$date_start = $request->input('startdate');
+    		$project->starts = date("Y-m-d", strtotime($date_start));
+    		$date_end = $request->input('enddate');
+    		$project->ends = date("Y-m-d", strtotime($date_end));
+    		$project->employee_id = $request->input('project-manager');
+    	}
+    	$project->save();
+    	//dd($prj);
+    	$project->employees()->attach($request->input('employees'));
+    	
     }
 }

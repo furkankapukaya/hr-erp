@@ -8,7 +8,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
               <div class="x_title">
-                <h2>Employee List <small>employee list</small></h2>
+                <h2>Project List</h2>
                 <ul class="nav navbar-right panel_toolbox">
                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                   </li>
@@ -29,26 +29,25 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Gender</th>
-                      <th>Date of Birth</th>
-                      <th>Date of Recruitment</th>
-                      <th>Address</th>
-
+                      <th>Project Name</th>
+                      <th>Project Manager</th>
+                      <th>Starting Date</th>
+                      <th>End Date</th>
+                      <th>Number of Workers</th>
                     </tr>
                   </thead>
 
                   <tbody>
-                    @foreach($employees as $key=>$employee)
+                    @foreach($projects as $key=>$project)
                       <tr>
                         <th scope="row">{{++$key}}</th>
-                        <td>{{$employee->name}}</td>
-                        <td>{{$employee->lastname}}</td>
-                        <td>{{$employee->gender}}</td>
-                        <td>{{$employee->birthday}}</td>
-                        <td>{{$employee->recruitment}}</td>
-                        <td>{{$employee->address}}</td>
+                        <td>{{ $project->name }}</td>
+                        <td>{{ \App\Employee::find($project->employee_id)->name }}
+                         {{ \App\Employee::find($project->employee_id)->lastname }}</td>
+                        <td>{{ $project->starts }}</td>
+                        <td>{{ $project->ends }}</td>
+                        <td>{{ $employee_counts[$key-1] }}</td>
+                      
 
                       </tr>
                     @endforeach

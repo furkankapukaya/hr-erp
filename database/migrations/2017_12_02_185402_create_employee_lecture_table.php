@@ -15,8 +15,14 @@ class CreateEmployeeLectureTable extends Migration
     {
         Schema::create('employee_lecture', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('employee_id');
-            $table->integer('lecture_id');
+            $table->integer('employee_id')->unsigned();
+            $table->foreign('employee_id')
+                    ->references('id')->on('employees')
+                    ->onDelete('cascade');
+            $table->integer('lecture_id')->unsigned();
+            $table->foreign('lecture_id')
+                    ->references('id')->on('lectures')
+                    ->onDelete('cascade');
             $table->timestamps();
         });
     }
