@@ -47,6 +47,8 @@ class ProjectController extends Controller
     	$project->save();
     	//dd($prj);
     	$project->employees()->attach($request->input('employees'));
+
+    	return redirect()->action('ProjectController@index');
     	
     }
 }
