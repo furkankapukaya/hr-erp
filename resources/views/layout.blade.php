@@ -54,27 +54,32 @@
                   <li><a><i class="fa fa-edit"></i> Lectures <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="form.html">Add Lecture</a></li>
-                      <li><a href="form_advanced.html">Show Lectures</a></li>
+                      <li><a href="{{ action('LectureController@index') }}">List Lectures</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Vacations <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="general_elements.html">Approve Vacation</a></li>
                       <li><a href="media_gallery.html">Demand Vacation</a></li>
-                      <li><a href="media_gallery.html">Show Vacations</a></li>
+                      <li><a href="{{ action('VacationController@index') }}">List Vacations</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> Demands  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">Add Demands</a></li>
-                      <li><a href="tables_dynamic.html">Show Demands</a></li>
+                      <li><a href="{{ action('DemandController@index') }}">List Demands</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i> Employees <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-table"></i> Projects  <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="tables.html">Add Project</a></li>
+                      <li><a href="{{ action('ProjectController@index') }}">List Projects</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-user"></i> Employees <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="fixed_sidebar.html">Add Employee</a></li>
-                      <li><a href="fixed_sidebar.html">Update CV</a></li>
-                      <li><a href="fixed_footer.html">Show Employees</a></li>
+                      <li><a href="{{ action('EmployeeController@index') }}">List Employees</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Timelines </a>
