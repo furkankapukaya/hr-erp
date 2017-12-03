@@ -15,12 +15,14 @@ class CreateDemandsTable extends Migration
     {
         Schema::create('demands', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('project');
-            $table->string('position');
+            $table->integer('project_id')->unsigned();
             $table->string('info');
             $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')
                     ->references('id')->on('employees')
+                    ->onDelete('cascade');
+            $table->foreign('project_id')
+                    ->references('id')->on('projects')
                     ->onDelete('cascade');
             $table->timestamps();
 
