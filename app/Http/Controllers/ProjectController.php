@@ -11,11 +11,13 @@ class ProjectController extends Controller
     function index()
     {
         $projects = \App\Project::all();
-        return view('project.index', ['projects' => $projects]);
+        $employees = \App\Employee::all();
+        return view('project.index', ['projects' => $projects, 'employees' => $employees]);
     }
 
     public function create()
     {
-    	return view('project.create');
+    	$employees = \App\Employee::all();
+    	return view('project.create', ['employees' => $employees]);
     }
 }
