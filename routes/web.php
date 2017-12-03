@@ -21,3 +21,6 @@ Route::resource('lecture', 'LectureController');
 Route::resource('timeline', 'TimelineController');
 Route::resource('demand', 'DemandController');
 Route::resource('project', 'ProjectController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

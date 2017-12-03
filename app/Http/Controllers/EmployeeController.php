@@ -10,9 +10,9 @@ class EmployeeController extends Controller
 	public function create()
     {
     	return view('employee.create');
-    }	
+    }
 
-    function index()
+    public function index()
     {
         $employees = \App\Employee::all();
         return view('employee.index', ['employees' => $employees]);
@@ -34,6 +34,9 @@ class EmployeeController extends Controller
     	}
     	$employee->save();
 
+		return redirect()->action('EmployeeController@index');
+		//$employees = Employe::all();
+		//return view('employee.index', ['employees' => $employees]);
    	}
 
 }
