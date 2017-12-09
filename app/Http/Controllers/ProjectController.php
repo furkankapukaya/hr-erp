@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Project;
+use \App\Employee;
+use \DB;
 
 
 class ProjectController extends Controller
 {
-    function index()
+    public function index()
     {
         $projects = \App\Project::all();
         $employees = \App\Employee::all();
@@ -45,10 +47,33 @@ class ProjectController extends Controller
     		$project->employee_id = $request->input('project-manager');
     	}
     	$project->save();
-    	//dd($prj);
     	$project->employees()->attach($request->input('employees'));
+        session()->flash(
+            'message', 'Project has been added.'
+            );
 
     	return redirect()->action('ProjectController@index');
     	
+    }
+
+    public function edit($id)
+    {
+        $employees = Employee::all();
+        $project = Project::find($id);
+        $project->starts = date("m/d/Y", strtotime($project->starts));
+        return view('project.edit', ['project' => $project, 'employees' => $employees]);
+    }
+
+    public function update(Request $request)
+    {
+        $project = Project::find(1);
+    }
+
+    public function destroy($id)
+    {
+        Project::where(['id' => $id])->delete();
+       // DB::table('projects')->delete($id);
+        
+        return ['message' => "Project has been deleted."];
     }
 }
