@@ -27,7 +27,7 @@
               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="project-manager" >Project Manager<span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select class="form-control" placeholder="{{ \App\Employee::find($project->employee_id)->name }}" name="project-manager">
+                            <select class="form-control" value="{{ \App\Employee::find($project->employee_id)->name }}" name="project-manager">
                               <option value="" disabled selected>{{ \App\Employee::find($project->employee_id)->name }} {{ \App\Employee::find($project->employee_id)->lastname }}</option>
                               @foreach($employees as $employee)
                                 <option name="{{ $employee->id }}" value="{{ $employee->id }}">{{ $employee->name }} {{ $employee->lastname }}</option>
@@ -52,7 +52,7 @@
               <label class="control-label col-md-3 col-sm-3 col-xs-12">Starting Date<span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                 <input type="text" class="form-control has-feedback-left" name="startdate" id="single_cal1" placeholder="{{ $project->starts }}" aria-describedby="inputSuccess2Status">
+                 <input type="text" class="form-control has-feedback-left" name="startdate" id="single_cal1" value="{{ $project->starts }}"placeholder="{{ $project->starts }}" aria-describedby="inputSuccess2Status">
                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
               </div>
@@ -62,7 +62,7 @@
               <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date<span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                 <input type="text" class="form-control has-feedback-left" name="enddate" id="single_cal2" placeholder="{{ $project->ends }}" aria-describedby="inputSuccess2Status">
+                 <input type="text" class="form-control has-feedback-left" name="enddate" id="single_cal2" value="{{ $project->ends }}" placeholder="{{ $project->ends }}" aria-describedby="inputSuccess2Status">
                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
               </div>

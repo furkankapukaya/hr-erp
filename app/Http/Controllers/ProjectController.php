@@ -59,9 +59,11 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $employees = Employee::all();
-        $project = Project::find($id);
+        $project = Project::with('Manager')->where(['id'=>$id])->first();
         $project->starts = date("m/d/Y", strtotime($project->starts));
-        return view('project.edit', ['project' => $project, 'employees' => $employees]);
+        $project->ends = date("m/d/Y", strtotime($project->ends));
+
+        return ['project' => $project, 'employees' => $employees];
     }
 
     public function update(Request $request)

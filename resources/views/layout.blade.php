@@ -202,8 +202,9 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../../build/js/custom.min.js"></script>
+
     <script type="text/javascript">
-      console.log("adsad");
+      //console.log("adsad");
       $('#project-delete').on('shown.bs.modal', function (e) {
           var $invoker = $(e.relatedTarget);
           $(this).find('.btn-delete').attr("data-url", $invoker.attr("data-url"));
@@ -224,15 +225,45 @@
           },
           dataType: 'json',
           success: function(result){
-             $("#project-table button[data-url='"+ $this.attr('data-url') +"']").parents("tr").eq(0).remove();
-             $("#project-delete").modal('hide');
-             $("#project-container").append('<div class="alert alert-success" role="alert">'+result.message+'</div>')
-
-        }});
+             $("#project-table button[data-url='"+ $this.attr('data-url') +"']").parents("tr").eq(0).remove(); // 
+             $("#project-delete").modal('hide'); // hide modal
+             $("#project-container").append('<div class="alert alert-success" role="alert">'+result.message+'</div>') // show flash msg
+             $('div.alert').not('.alert-important').delay(4000).fadeOut(200); // hide flash 
+          }});
 
       })
 
     </script> 
+    <script>
+      $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+    </script>
+
+    <script type="text/javascript">
+        $('.btn-edit-tmp').on('click', function (e) {
+          //var $invoker = $(e.relatedTarget);
+          //$(this).find('.btn-edit').attr("data-url", $invoker.attr("data-url"));
+
+          $.ajax({
+              type: 'get',
+              url: $(this).attr("data-url"),
+              method: 'get',
+              headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              success: function(result) {
+                  var prj = $("#project-edit");
+                  prj.modal('show');
+                  prj.find('*[name="first-name-edit"]').val(result.project['name']);
+                  prj.find('*[name="start-date-edit"]').val(result.project['starts']);
+                  prj.find('*[name="end-date-edit"]').val(result.project['ends']);
+                  prj.find('*[name="project-manager-name-edit"]').val(result.project.manager.name);
+
+                 // $("#project-edit").find('*[name=')
+              }
+          });
+        })
+        
+    </script>
 
   </body>
 </html>
