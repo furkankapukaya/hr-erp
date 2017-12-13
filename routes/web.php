@@ -15,12 +15,22 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('employee', 'EmployeeController');
-Route::resource('vacation', 'VacationController');
-Route::resource('lecture', 'LectureController');
-Route::resource('timeline', 'TimelineController');
-Route::resource('demand', 'DemandController');
-Route::resource('project', 'ProjectController');
-Auth::routes();
+Route::post('/login', 'LoginController@login');
+Route::get('/login', 'LoginController@show');
+Route::get('/logout', 'LoginController@logout');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('employee', 'EmployeeController');
+	Route::resource('vacation', 'VacationController');
+	Route::resource('lecture', 'LectureController');
+	Route::resource('timeline', 'TimelineController');
+	Route::resource('demand', 'DemandController');
+	Route::resource('project', 'ProjectController');
+});
+
+
+
+
+//Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');

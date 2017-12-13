@@ -5,7 +5,7 @@
 @section('content')
 	<div class="x_content">
         <br>
-        <form action="{{action('EmployeeController@store')}}" method="POST" id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+        <form action="{{action('EmployeeController@store')}}" method="POST" id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left">
         	{{ csrf_field() }}
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
@@ -15,10 +15,10 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" >Last Name <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+              <input type="text" id="last-name" name="last-name" class="form-control col-md-7 col-xs-12" required=""/>
             </div>
           </div>
           
@@ -60,6 +60,22 @@
             </div>
           </div>
 
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-mail <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password <span class="required">*</span>
+            </label>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <input type="password" id="password" name="password" required="required" class="form-control col-md-7 col-xs-12">
+            </div>
+          </div>
+
 
           <div class="ln_solid"></div>
           <div class="form-group">
@@ -70,6 +86,8 @@
             </div>
           </div>
 
+
+          @include('errors')
         </form>
     </div>
 @endsection

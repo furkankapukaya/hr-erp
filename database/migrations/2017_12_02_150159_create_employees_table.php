@@ -21,6 +21,8 @@ class CreateEmployeesTable extends Migration
             $table->string('address');
             $table->string('gender');
             $table->date('recruitment');
+            $table->string('email')->unique;
+            $table->string('password');
             $table->integer('admin')->default(0);  
             $table->timestamps();
         });
