@@ -15,8 +15,10 @@ class CreateDemandsTable extends Migration
     {
         Schema::create('demands', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('project_id')->unsigned();
+            $table->string('title');
             $table->string('info');
+            $table->integer('status')->default(0);
+            $table->integer('project_id')->unsigned();
             $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')
                     ->references('id')->on('employees')

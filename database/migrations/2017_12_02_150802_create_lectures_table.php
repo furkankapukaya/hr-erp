@@ -16,12 +16,11 @@ class CreateLecturesTable extends Migration
         Schema::create('lectures', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->dateTime('starts');
-            $table->dateTime('ends');
-            $table->integer('employee_id')->unsigned();
-            $table->foreign('employee_id')
-                    ->references('id')->on('employees')
-                    ->onDelete('cascade');
+            $table->string('scope');
+            $table->string('lecturer');
+            $table->integer('capacity');
+            $table->integer('members')->default(0);
+            $table->date('starts');
             $table->timestamps();
         });
     }

@@ -13,11 +13,11 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/login', 'LoginController@show');
-Route::get('/logout', 'LoginController@logout');
+Route::get('/logout', 'LoginController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('employee', 'EmployeeController');
@@ -33,4 +33,4 @@ Route::group(['middleware' => ['auth']], function() {
 
 //Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+//Route::get('/', 'EmployeeController@index')->name('home');

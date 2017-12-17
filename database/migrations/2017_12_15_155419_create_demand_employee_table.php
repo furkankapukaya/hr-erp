@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmployeeProjectTable extends Migration
+class CreateDemandEmployeeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateEmployeeProjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('employee_project', function (Blueprint $table) {
+        Schema::create('demand_employee', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')
                     ->references('id')->on('employees')
                     ->onDelete('cascade');
-            $table->integer('project_id')->unsigned();
-            $table->foreign('project_id')
-                    ->references('id')->on('projects')
+            $table->integer('demand_id')->unsigned();
+            $table->foreign('demand_id')
+                    ->references('id')->on('demands')
                     ->onDelete('cascade');
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ class CreateEmployeeProjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_project');
+        Schema::dropIfExists('demand_employee');
     }
 }

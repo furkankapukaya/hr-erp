@@ -16,6 +16,7 @@ class CreateVacationsTable extends Migration
         Schema::create('vacations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('info');
+            $table->integer('status')->default(0);
             $table->date('starts');
             $table->date('ends');
             $table->integer('employee_id')->unsigned();

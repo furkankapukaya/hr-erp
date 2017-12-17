@@ -51,7 +51,7 @@
               <label class="control-label col-md-3 col-sm-3 col-xs-12">Starting Date<span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-               	 <input type="text" class="form-control has-feedback-left" name="startdate" id="single_cal1" placeholder="Starting Date" aria-describedby="inputSuccess2Status">
+               	 <input type="text" class="form-control has-feedback-left" name="start-date" id="single_cal1" placeholder="Starting Date" aria-describedby="inputSuccess2Status">
                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
               </div>
@@ -61,7 +61,7 @@
               <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date<span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 col-xs-12">
-                 <input type="text" class="form-control has-feedback-left" name="enddate" id="single_cal2" placeholder="End Date" aria-describedby="inputSuccess2Status">
+                 <input type="text" class="form-control has-feedback-left" name="end-date" id="single_cal2" placeholder="End Date" aria-describedby="inputSuccess2Status">
                    <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
               </div>

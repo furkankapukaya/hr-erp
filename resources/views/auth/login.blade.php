@@ -38,7 +38,7 @@ window.__cfRocketOptions = {byc:0,p:1512201853,petok:"5399c6a003a2cba0ad361df7f9
           <section class="login_content">
             <form method="POST" action="{{action('LoginController@login')}}">
                 {{ csrf_field() }}
-              <h1>Login Form</h1>
+              <h1>Login HR-ERP</h1>
               <div>
                 <input type="text" class="form-control" name="email" placeholder="Email" required="" />
               </div>
