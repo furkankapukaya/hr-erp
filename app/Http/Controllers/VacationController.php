@@ -7,11 +7,26 @@ use \App\Vacation;
 use \Auth;
 class VacationController extends Controller
 {
-    function index()
+    /*function index()
     {
         $vacations = \App\Vacation::all();
         return view('vacation.index', ['vacations' => $vacations]);
+    }*/
+
+    function index()
+    {
+        if(auth()->user()->admin){
+            $vacations = \App\Vacation::all();    
+        }else{
+            $employee = \App\Employee::where('email', "=", auth()->user()->email)->first();
+            $vacations = \App\Vacation::where('employee_id', "=", $employee->id)->get();
+            //dd($vacations);   
+        }
+        $vacations = collect($vacations)->sortBy('status');
+        //dd($vacations);
+        return view('vacation.index', ['vacations' => $vacations]);
     }
+
 
     public function create()
     {
