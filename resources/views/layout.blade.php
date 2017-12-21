@@ -54,10 +54,10 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Control Panel <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="{{ action('HomeController@index') }}"><i class="fa fa-home"></i> Control Panel </a>
 
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Lectures <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-graduation-cap"></i> Lectures <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       @if(auth()->user()->admin)
                           <li><a href="{{ action('LectureController@create') }}">Add Lecture</a></li>
@@ -65,7 +65,7 @@
                       <li><a href="{{ action('LectureController@index') }}">List Lectures</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Vacations <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-heart"></i> Vacations <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       @if(auth()->user()->admin)
                           <li><a href="{{ action('VacationController@index') }}">List Vacation Demands</a></li>
@@ -77,7 +77,7 @@
                       @endif
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-table"></i> Demands  <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-envelope"></i> Demands  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       @if(!auth()->user()->admin)
                           <li><a href="{{ action('DemandController@create') }}">Add Demand</a></li>
@@ -222,7 +222,7 @@
     <script src="../../vendors/moment/min/moment.min.js"></script>
     <script src="../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-    <!-- PNotify    
+    <!-- PNotify
     <script src="../../vendors/pnotify/dist/pnotify.js"></script>
     <script src="../../vendors/pnotify/dist/pnotify.buttons.js"></script>
     <script src="../../vendors/pnotify/dist/pnotify.nonblock.js"></script>
@@ -231,7 +231,7 @@
     <script src="../../build/js/custom.min.js"></script>
     <script src="../../build/js/tmp.js"></script>
 
-    
+
 
   </body>
 </html>

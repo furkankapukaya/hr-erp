@@ -23,6 +23,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $projects = \App\Project::all()->count();
+        $employees = \App\Employee::all()->count();
+        $demands = \App\Demand::all()->count();
+        $lectures = \App\Lecture::all()->count();
+        return view('dashboard', [
+            'projects' => $projects,
+            'employees' => $employees,
+            'demands' => $demands,
+            'lectures' => $lectures
+        ]);
     }
 }

@@ -30,7 +30,7 @@
                 <tr>
                   <th scope="row">{{++$key}}</th>
                   <td>{{ $lecture->name }}</td>
-                  <td>{{ $lecture->starts }}</td>
+                  <td>{{ $lecture->lecturer }}</td>
                   <td>{{ $lecture->scope }}</td>
                   <td>{{ $lecture->starts }}</td>
                   <td>{{ $lecture->members }} / {{ $lecture->capacity }}</td>
@@ -43,7 +43,7 @@
                   @endif
                 </tr>
                 @endforeach
-                
+
               </tbody>
 
             </table>
@@ -83,7 +83,7 @@
               </div>
           @endif
         </div>
-        
+
     </div>
 </div>
 

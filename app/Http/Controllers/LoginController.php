@@ -7,7 +7,7 @@ use \Auth;
 use \Session;
 
 class LoginController extends Controller
-{    
+{
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -26,7 +26,7 @@ class LoginController extends Controller
         foreach ($users as $user) {
             if($user->password == $password && $user->email == $email){
                 Auth::login($user,true);
-                return redirect()->action('EmployeeController@index');
+                return redirect()->action('HomeController@index');
             }
         }
         return back()->withErrors(['field_name' => ['Invalid User Informations.']]);
@@ -42,10 +42,3 @@ class LoginController extends Controller
     }
 
 }
-
-
-
-
-
-
-

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('dashboard');
 
 Route::post('/login', 'LoginController@login')->name('login');
 Route::get('/login', 'LoginController@show');
